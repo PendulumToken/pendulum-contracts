@@ -1,4 +1,4 @@
-pragma solidity ^0.4.13;
+pragma solidity ^0.4.18;
 
 contract AccountRegistry {
 	
@@ -10,7 +10,7 @@ contract AccountRegistry {
 	
 	mapping(address => Account) public accounts;
 	
-	function getSenderAccountIpfsHash() public constant returns (string) {
+	function getSenderAccountIpfsHash() public view returns (string) {
 		return accounts[msg.sender].ipfsHash;
 	}
 
