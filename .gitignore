@@ -7,5 +7,6 @@
 .classpath
 .project
 .settings
+.testrpc
 
 node_modules/
