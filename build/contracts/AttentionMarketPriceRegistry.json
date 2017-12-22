@@ -36,7 +36,7 @@
       "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionMarketPriceRegistry.sol",
       "exportedSymbols": {
         "AttentionMarketPriceRegistry": [
-          526
+          401
         ]
       }
     },
@@ -50,9 +50,9 @@
             ".18"
           ]
         },
-        "id": 516,
+        "id": 391,
         "name": "PragmaDirective",
-        "src": "0:24:9"
+        "src": "0:24:6"
       },
       {
         "attributes": {
@@ -66,10 +66,10 @@
           "documentation": "@title Attention Market Price Registry\n\n * @dev Data registry that stores the market-based (supply-demand) pricing parameters of each user's attention.\nThis is one of several pricing strategies used to model a user's attention price.\n\n * @dev Since this is a datastore, it is intentionally NOT meant to be upgradeable.\n\n * @author Hwi Yong Song",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            526
+            401
           ],
           "name": "AttentionMarketPriceRegistry",
-          "scope": 527
+          "scope": 402
         },
         "children": [
           {
@@ -83,7 +83,7 @@
               ],
               "name": "getPrice",
               "payable": false,
-              "scope": 526,
+              "scope": 401,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -95,7 +95,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_who",
-                      "scope": 525,
+                      "scope": 400,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -108,20 +108,20 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 517,
+                        "id": 392,
                         "name": "ElementaryTypeName",
-                        "src": "457:7:9"
+                        "src": "457:7:6"
                       }
                     ],
-                    "id": 518,
+                    "id": 393,
                     "name": "VariableDeclaration",
-                    "src": "457:12:9"
+                    "src": "457:12:6"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "_when",
-                      "scope": 525,
+                      "scope": 400,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes memory",
@@ -134,19 +134,19 @@
                           "name": "bytes",
                           "type": "bytes storage pointer"
                         },
-                        "id": 519,
+                        "id": 394,
                         "name": "ElementaryTypeName",
-                        "src": "471:5:9"
+                        "src": "471:5:6"
                       }
                     ],
-                    "id": 520,
+                    "id": 395,
                     "name": "VariableDeclaration",
-                    "src": "471:11:9"
+                    "src": "471:11:6"
                   }
                 ],
-                "id": 521,
+                "id": 396,
                 "name": "ParameterList",
-                "src": "456:27:9"
+                "src": "456:27:6"
               },
               {
                 "children": [
@@ -154,7 +154,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 525,
+                      "scope": 400,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -167,34 +167,34 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 522,
+                        "id": 397,
                         "name": "ElementaryTypeName",
-                        "src": "505:4:9"
+                        "src": "505:4:6"
                       }
                     ],
-                    "id": 523,
+                    "id": 398,
                     "name": "VariableDeclaration",
-                    "src": "505:4:9"
+                    "src": "505:4:6"
                   }
                 ],
-                "id": 524,
+                "id": 399,
                 "name": "ParameterList",
-                "src": "504:6:9"
+                "src": "504:6:6"
               }
             ],
-            "id": 525,
+            "id": 400,
             "name": "FunctionDefinition",
-            "src": "439:72:9"
+            "src": "439:72:6"
           }
         ],
-        "id": 526,
+        "id": 401,
         "name": "ContractDefinition",
-        "src": "394:122:9"
+        "src": "394:122:6"
       }
     ],
-    "id": 527,
+    "id": 402,
     "name": "SourceUnit",
-    "src": "0:516:9"
+    "src": "0:516:6"
   },
   "compiler": {
     "name": "solc",
@@ -202,5 +202,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-22T07:10:56.974Z"
+  "updatedAt": "2017-12-22T17:50:42.766Z"
 }

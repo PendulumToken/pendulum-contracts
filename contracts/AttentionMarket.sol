@@ -6,29 +6,27 @@ import "zeppelin-solidity/contracts/ownership/Ownable.sol";
 
 contract AttentionMarket is Ownable, Proxy {
 
-  uint totalCreditsSold;
-  AttentionCreditPurchase[] creditPurchases;
-  mapping(address => uint) purchaserCredits;
-	 
-  event AttentionCreditPurchaseEvent(address _purchaser, uint _quantity, bytes _when, uint _price, uint _totalCost);
-	
-  struct AttentionCreditPurchase {
-    address purchaser;
+  struct AttentionCreditInvoice {
+    address buyer;
+    bytes when;
     uint quantity;
     uint price;
     uint totalCost;
     uint purchasedAt;
   }
-	
-  function purchaseCredits(uint _quantity, bytes _when) public payable {
-    uint attentionPrice = getAttentionPrice(owner, _when);
+
+  mapping(address => uint) buyerCredits;
+  AttentionCreditInvoice[] buyerInvoices;
+	 
+  event AttentionCreditBuyEvent(address _buyer, bytes _when, uint _quantity, uint _price, uint _totalCost);
+		
+  function buyCredits(bytes _when, uint _quantity) public payable {
+    uint attentionPrice = getOwnerAttentionPrice(_when);
     uint totalCost = attentionPrice * _quantity;		
     require(msg.value >= totalCost);
 
-    purchaserCredits[msg.sender] += _quantity;
-    totalCreditsSold += _quantity;
-		
-    creditPurchases.push(AttentionCreditPurchase(msg.sender, _quantity, attentionPrice, totalCost, now));
+    buyerCredits[msg.sender] += _quantity;
+    buyerInvoices.push(AttentionCreditInvoice(msg.sender, _when, _quantity, attentionPrice, totalCost, now));
 		
     bool overpaid = msg.value > totalCost;
     if (overpaid) {
@@ -38,16 +36,20 @@ contract AttentionMarket is Ownable, Proxy {
       }
     }
 		
-    AttentionCreditPurchaseEvent(msg.sender, _quantity, _when, attentionPrice, totalCost);
-  }
-	
-  function getRemainingCredits() public view returns (uint) {
-    return purchaserCredits[msg.sender];
+    AttentionCreditBuyEvent(msg.sender, _when, _quantity, attentionPrice, totalCost);
   }
   
-  function getAttentionPrice(address _who, bytes _when) private returns (uint) {
+  function redeemCredits(uint _quantity) public {
+    // To be completed.
+  }
+	
+  function getMyRemainingCredits() public view returns (uint) {
+    return buyerCredits[msg.sender];
+  }
+  
+  function getOwnerAttentionPrice(bytes _when) private returns (uint) {
     AttentionPriceProvider attentionPriceProvider = AttentionPriceProvider(lookupAddress("urn:contract:attention-price-provider"));
-    return attentionPriceProvider.getPrice(_who, _when);
+    return attentionPriceProvider.getPrice(owner, _when);
   }
 	
 }

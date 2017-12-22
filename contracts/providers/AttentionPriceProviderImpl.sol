@@ -5,7 +5,7 @@ import "../extensions/Proxy.sol";
 import "../registries/AttentionFlatPriceRegistry.sol";
 import "../registries/AttentionMarketPriceRegistry.sol";
 
-contract AttentionFlatPriceProvider is AttentionPriceProvider, Proxy {
+contract AttentionPriceProviderImpl is AttentionPriceProvider, Proxy {
   
   function getPrice(address _who, bytes _when) public returns (uint) {
     if (useFlatPriceStrategy(_who)) {
@@ -21,12 +21,12 @@ contract AttentionFlatPriceProvider is AttentionPriceProvider, Proxy {
   }
   
   function useFlatPriceStrategy(address _who) private pure returns (bool) {
-    // To be completed when A/B testing is implemented.
+    // To be completed when A/B testing is implemented. For now, assume 100%.
     return true;
   }
   
   function useMarketPriceStrategy(address _who) private pure returns (bool) {
-    // To be completed when A/B testing is implemented.
+    // To be completed when A/B testing is implemented. For now, assume 0%.
     return false;
   }
   
@@ -36,6 +36,9 @@ contract AttentionFlatPriceProvider is AttentionPriceProvider, Proxy {
   }
   
   function getMarketPrice(address _who, bytes _when) private view returns (uint) {
+    // In the future, AttentionMarketPriceRegistry should return pricing parameters (e.g. supply, demand, floor price). 
+    // These parameters should be used as inputs into a library function to calculate the real-time market price.
+    // For now, use a stub until this is implemented.
     AttentionMarketPriceRegistry attentionPriceRegistry = AttentionMarketPriceRegistry(lookupAddress("urn:contract:attention-market-price-registry"));
     return attentionPriceRegistry.getPrice(_who, _when);
   }

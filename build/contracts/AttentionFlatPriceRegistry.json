@@ -60,7 +60,7 @@
       "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionFlatPriceRegistry.sol",
       "exportedSymbols": {
         "AttentionFlatPriceRegistry": [
-          19
+          337
         ]
       }
     },
@@ -74,9 +74,9 @@
             ".18"
           ]
         },
-        "id": 1,
+        "id": 319,
         "name": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:4"
       },
       {
         "attributes": {
@@ -90,10 +90,10 @@
           "documentation": "@title Attention Flat Price Registry\n\n * @dev Data registry that stores the flat pricing parameters of each user's attention.\nThis is one of several pricing strategies used to model a user's attention price.\n\n * @dev Since this is a datastore, it is intentionally NOT meant to be upgradeable.",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            19
+            337
           ],
           "name": "AttentionFlatPriceRegistry",
-          "scope": 20
+          "scope": 338
         },
         "children": [
           {
@@ -107,7 +107,7 @@
               ],
               "name": "getPrice",
               "payable": false,
-              "scope": 19,
+              "scope": 337,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -119,7 +119,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_who",
-                      "scope": 8,
+                      "scope": 326,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -132,19 +132,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 2,
+                        "id": 320,
                         "name": "ElementaryTypeName",
-                        "src": "400:7:0"
+                        "src": "400:7:4"
                       }
                     ],
-                    "id": 3,
+                    "id": 321,
                     "name": "VariableDeclaration",
-                    "src": "400:12:0"
+                    "src": "400:12:4"
                   }
                 ],
-                "id": 4,
+                "id": 322,
                 "name": "ParameterList",
-                "src": "399:14:0"
+                "src": "399:14:4"
               },
               {
                 "children": [
@@ -152,7 +152,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 8,
+                      "scope": 326,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -165,24 +165,24 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 5,
+                        "id": 323,
                         "name": "ElementaryTypeName",
-                        "src": "435:4:0"
+                        "src": "435:4:4"
                       }
                     ],
-                    "id": 6,
+                    "id": 324,
                     "name": "VariableDeclaration",
-                    "src": "435:4:0"
+                    "src": "435:4:4"
                   }
                 ],
-                "id": 7,
+                "id": 325,
                 "name": "ParameterList",
-                "src": "434:6:0"
+                "src": "434:6:4"
               }
             ],
-            "id": 8,
+            "id": 326,
             "name": "FunctionDefinition",
-            "src": "382:59:0"
+            "src": "382:59:4"
           },
           {
             "attributes": {
@@ -195,7 +195,7 @@
               ],
               "name": "getMyPrice",
               "payable": false,
-              "scope": 19,
+              "scope": 337,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -208,9 +208,9 @@
                   ]
                 },
                 "children": [],
-                "id": 9,
+                "id": 327,
                 "name": "ParameterList",
-                "src": "466:2:0"
+                "src": "466:2:4"
               },
               {
                 "children": [
@@ -218,7 +218,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 13,
+                      "scope": 331,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -231,24 +231,24 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 10,
+                        "id": 328,
                         "name": "ElementaryTypeName",
-                        "src": "490:4:0"
+                        "src": "490:4:4"
                       }
                     ],
-                    "id": 11,
+                    "id": 329,
                     "name": "VariableDeclaration",
-                    "src": "490:4:0"
+                    "src": "490:4:4"
                   }
                 ],
-                "id": 12,
+                "id": 330,
                 "name": "ParameterList",
-                "src": "489:6:0"
+                "src": "489:6:4"
               }
             ],
-            "id": 13,
+            "id": 331,
             "name": "FunctionDefinition",
-            "src": "447:49:0"
+            "src": "447:49:4"
           },
           {
             "attributes": {
@@ -261,7 +261,7 @@
               ],
               "name": "setMyPrice",
               "payable": false,
-              "scope": 19,
+              "scope": 337,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -273,7 +273,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_price",
-                      "scope": 18,
+                      "scope": 336,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -286,19 +286,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 14,
+                        "id": 332,
                         "name": "ElementaryTypeName",
-                        "src": "522:4:0"
+                        "src": "522:4:4"
                       }
                     ],
-                    "id": 15,
+                    "id": 333,
                     "name": "VariableDeclaration",
-                    "src": "522:11:0"
+                    "src": "522:11:4"
                   }
                 ],
-                "id": 16,
+                "id": 334,
                 "name": "ParameterList",
-                "src": "521:13:0"
+                "src": "521:13:4"
               },
               {
                 "attributes": {
@@ -307,24 +307,24 @@
                   ]
                 },
                 "children": [],
-                "id": 17,
+                "id": 335,
                 "name": "ParameterList",
-                "src": "541:0:0"
+                "src": "541:0:4"
               }
             ],
-            "id": 18,
+            "id": 336,
             "name": "FunctionDefinition",
-            "src": "502:40:0"
+            "src": "502:40:4"
           }
         ],
-        "id": 19,
+        "id": 337,
         "name": "ContractDefinition",
-        "src": "339:208:0"
+        "src": "339:208:4"
       }
     ],
-    "id": 20,
+    "id": 338,
     "name": "SourceUnit",
-    "src": "0:547:0"
+    "src": "0:547:4"
   },
   "compiler": {
     "name": "solc",
@@ -332,5 +332,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-22T07:16:30.536Z"
+  "updatedAt": "2017-12-22T17:50:42.765Z"
 }

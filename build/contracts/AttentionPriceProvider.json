@@ -36,7 +36,7 @@
       "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/providers/AttentionPriceProvider.sol",
       "exportedSymbols": {
         "AttentionPriceProvider": [
-          266
+          209
         ]
       }
     },
@@ -50,9 +50,9 @@
             ".18"
           ]
         },
-        "id": 256,
+        "id": 199,
         "name": "PragmaDirective",
-        "src": "0:24:3"
+        "src": "0:24:2"
       },
       {
         "attributes": {
@@ -66,10 +66,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            266
+            209
           ],
           "name": "AttentionPriceProvider",
-          "scope": 267
+          "scope": 210
         },
         "children": [
           {
@@ -83,7 +83,7 @@
               ],
               "name": "getPrice",
               "payable": false,
-              "scope": 266,
+              "scope": 209,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -95,7 +95,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "who",
-                      "scope": 265,
+                      "scope": 208,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -108,20 +108,20 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 257,
+                        "id": 200,
                         "name": "ElementaryTypeName",
-                        "src": "83:7:3"
+                        "src": "83:7:2"
                       }
                     ],
-                    "id": 258,
+                    "id": 201,
                     "name": "VariableDeclaration",
-                    "src": "83:11:3"
+                    "src": "83:11:2"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "when",
-                      "scope": 265,
+                      "scope": 208,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes memory",
@@ -134,19 +134,19 @@
                           "name": "bytes",
                           "type": "bytes storage pointer"
                         },
-                        "id": 259,
+                        "id": 202,
                         "name": "ElementaryTypeName",
-                        "src": "96:5:3"
+                        "src": "96:5:2"
                       }
                     ],
-                    "id": 260,
+                    "id": 203,
                     "name": "VariableDeclaration",
-                    "src": "96:10:3"
+                    "src": "96:10:2"
                   }
                 ],
-                "id": 261,
+                "id": 204,
                 "name": "ParameterList",
-                "src": "82:25:3"
+                "src": "82:25:2"
               },
               {
                 "children": [
@@ -154,7 +154,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 265,
+                      "scope": 208,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -167,34 +167,34 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 262,
+                        "id": 205,
                         "name": "ElementaryTypeName",
-                        "src": "124:4:3"
+                        "src": "124:4:2"
                       }
                     ],
-                    "id": 263,
+                    "id": 206,
                     "name": "VariableDeclaration",
-                    "src": "124:4:3"
+                    "src": "124:4:2"
                   }
                 ],
-                "id": 264,
+                "id": 207,
                 "name": "ParameterList",
-                "src": "123:6:3"
+                "src": "123:6:2"
               }
             ],
-            "id": 265,
+            "id": 208,
             "name": "FunctionDefinition",
-            "src": "65:65:3"
+            "src": "65:65:2"
           }
         ],
-        "id": 266,
+        "id": 209,
         "name": "ContractDefinition",
-        "src": "26:109:3"
+        "src": "26:109:2"
       }
     ],
-    "id": 267,
+    "id": 210,
     "name": "SourceUnit",
-    "src": "0:135:3"
+    "src": "0:135:2"
   },
   "compiler": {
     "name": "solc",
@@ -202,5 +202,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-22T07:10:56.973Z"
+  "updatedAt": "2017-12-22T17:50:42.756Z"
 }
