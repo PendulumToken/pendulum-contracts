@@ -1,0 +1,1620 @@
+{
+  "contractName": "AttentionMarketRegistryImpl",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_marketAddress",
+          "type": "address"
+        },
+        {
+          "name": "_ipfsHash",
+          "type": "string"
+        }
+      ],
+      "name": "registerMarket",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_marketAddress",
+          "type": "address"
+        },
+        {
+          "name": "_ipfsHash",
+          "type": "string"
+        }
+      ],
+      "name": "addMyMarket",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "marketEntryIndexes",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        }
+      ],
+      "name": "getMarketRegisteredAt",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        }
+      ],
+      "name": "getMarketAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "marketEntries",
+      "outputs": [
+        {
+          "name": "ownerAddress",
+          "type": "address"
+        },
+        {
+          "name": "marketAddress",
+          "type": "address"
+        },
+        {
+          "name": "ipfsHash",
+          "type": "string"
+        },
+        {
+          "name": "registeredAt",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        }
+      ],
+      "name": "getMarketIpfsHash",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\nimport \"./AttentionMarketRegistry.sol\";\n\ncontract AttentionMarketRegistryImpl is AttentionMarketRegistry {\n\n  AttentionMarketEntry[] public marketEntries;\n  mapping(address => uint) public marketEntryIndexes;\n  \n  struct AttentionMarketEntry {\n    address ownerAddress;\n    address marketAddress;\n    string ipfsHash;\n    uint registeredAt;\n  }\n  \n  function registerMarket(address _marketAddress, string _ipfsHash) public {\n    marketEntries.push(AttentionMarketEntry(msg.sender, _marketAddress, _ipfsHash, now));\n    marketEntryIndexes[msg.sender] = marketEntries.length - 1;\n  }\n  \n  function getMarketAddress(address _who) public view returns (address) {\n    uint index = marketEntryIndexes[_who];\n    return marketEntries[index].marketAddress;\n  }\n  \n  function getMarketIpfsHash(address _who) public view returns (string) {\n    uint index = marketEntryIndexes[_who];\n    return marketEntries[index].ipfsHash;\n  }\n  \n  function getMarketRegisteredAt(address _who) public view returns (uint) {\n    uint index = marketEntryIndexes[_who];\n    return marketEntries[index].registeredAt;\n  }\n  \n}",
+  "sourcePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionMarketRegistryImpl.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionMarketRegistryImpl.sol",
+      "exportedSymbols": {
+        "AttentionMarketRegistryImpl": [
+          672
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 565,
+        "name": "PragmaDirective",
+        "src": "0:24:12"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 564,
+          "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionMarketRegistry.sol",
+          "file": "./AttentionMarketRegistry.sol",
+          "scope": 673,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 566,
+        "name": "ImportDirective",
+        "src": "26:39:12"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            563
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            672,
+            563
+          ],
+          "name": "AttentionMarketRegistryImpl",
+          "scope": 673
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "AttentionMarketRegistry",
+                  "referencedDeclaration": 563,
+                  "type": "contract AttentionMarketRegistry"
+                },
+                "id": 567,
+                "name": "UserDefinedTypeName",
+                "src": "107:23:12"
+              }
+            ],
+            "id": 568,
+            "name": "InheritanceSpecifier",
+            "src": "107:23:12"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "marketEntries",
+              "scope": 672,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "AttentionMarketEntry",
+                      "referencedDeclaration": 584,
+                      "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage pointer"
+                    },
+                    "id": 569,
+                    "name": "UserDefinedTypeName",
+                    "src": "136:20:12"
+                  }
+                ],
+                "id": 570,
+                "name": "ArrayTypeName",
+                "src": "136:22:12"
+              }
+            ],
+            "id": 571,
+            "name": "VariableDeclaration",
+            "src": "136:43:12"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "marketEntryIndexes",
+              "scope": 672,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => uint256)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 572,
+                    "name": "ElementaryTypeName",
+                    "src": "191:7:12"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 573,
+                    "name": "ElementaryTypeName",
+                    "src": "202:4:12"
+                  }
+                ],
+                "id": 574,
+                "name": "Mapping",
+                "src": "183:24:12"
+              }
+            ],
+            "id": 575,
+            "name": "VariableDeclaration",
+            "src": "183:50:12"
+          },
+          {
+            "attributes": {
+              "canonicalName": "AttentionMarketRegistryImpl.AttentionMarketEntry",
+              "name": "AttentionMarketEntry",
+              "scope": 672,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "ownerAddress",
+                  "scope": 584,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 576,
+                    "name": "ElementaryTypeName",
+                    "src": "274:7:12"
+                  }
+                ],
+                "id": 577,
+                "name": "VariableDeclaration",
+                "src": "274:20:12"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "marketAddress",
+                  "scope": 584,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 578,
+                    "name": "ElementaryTypeName",
+                    "src": "300:7:12"
+                  }
+                ],
+                "id": 579,
+                "name": "VariableDeclaration",
+                "src": "300:21:12"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "ipfsHash",
+                  "scope": 584,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 580,
+                    "name": "ElementaryTypeName",
+                    "src": "327:6:12"
+                  }
+                ],
+                "id": 581,
+                "name": "VariableDeclaration",
+                "src": "327:15:12"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "registeredAt",
+                  "scope": 584,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 582,
+                    "name": "ElementaryTypeName",
+                    "src": "348:4:12"
+                  }
+                ],
+                "id": 583,
+                "name": "VariableDeclaration",
+                "src": "348:17:12"
+              }
+            ],
+            "id": 584,
+            "name": "StructDefinition",
+            "src": "240:130:12"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "registerMarket",
+              "payable": false,
+              "scope": 672,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_marketAddress",
+                      "scope": 614,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 585,
+                        "name": "ElementaryTypeName",
+                        "src": "400:7:12"
+                      }
+                    ],
+                    "id": 586,
+                    "name": "VariableDeclaration",
+                    "src": "400:22:12"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_ipfsHash",
+                      "scope": 614,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 587,
+                        "name": "ElementaryTypeName",
+                        "src": "424:6:12"
+                      }
+                    ],
+                    "id": 588,
+                    "name": "VariableDeclaration",
+                    "src": "424:16:12"
+                  }
+                ],
+                "id": 589,
+                "name": "ParameterList",
+                "src": "399:42:12"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 590,
+                "name": "ParameterList",
+                "src": "449:0:12"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_AttentionMarketEntry_$584_memory",
+                                  "typeString": "struct AttentionMarketRegistryImpl.AttentionMarketEntry memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 571,
+                                  "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref[] storage ref",
+                                  "value": "marketEntries"
+                                },
+                                "id": 591,
+                                "name": "Identifier",
+                                "src": "455:13:12"
+                              }
+                            ],
+                            "id": 593,
+                            "name": "MemberAccess",
+                            "src": "455:18:12"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 584,
+                                  "type": "type(struct AttentionMarketRegistryImpl.AttentionMarketEntry storage pointer)",
+                                  "value": "AttentionMarketEntry"
+                                },
+                                "id": 594,
+                                "name": "Identifier",
+                                "src": "474:20:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 886,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 595,
+                                    "name": "Identifier",
+                                    "src": "495:3:12"
+                                  }
+                                ],
+                                "id": 596,
+                                "name": "MemberAccess",
+                                "src": "495:10:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 586,
+                                  "type": "address",
+                                  "value": "_marketAddress"
+                                },
+                                "id": 597,
+                                "name": "Identifier",
+                                "src": "507:14:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 588,
+                                  "type": "string memory",
+                                  "value": "_ipfsHash"
+                                },
+                                "id": 598,
+                                "name": "Identifier",
+                                "src": "523:9:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 888,
+                                  "type": "uint256",
+                                  "value": "now"
+                                },
+                                "id": 599,
+                                "name": "Identifier",
+                                "src": "534:3:12"
+                              }
+                            ],
+                            "id": 600,
+                            "name": "FunctionCall",
+                            "src": "474:64:12"
+                          }
+                        ],
+                        "id": 601,
+                        "name": "FunctionCall",
+                        "src": "455:84:12"
+                      }
+                    ],
+                    "id": 602,
+                    "name": "ExpressionStatement",
+                    "src": "455:84:12"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 575,
+                                  "type": "mapping(address => uint256)",
+                                  "value": "marketEntryIndexes"
+                                },
+                                "id": 603,
+                                "name": "Identifier",
+                                "src": "545:18:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 886,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 604,
+                                    "name": "Identifier",
+                                    "src": "564:3:12"
+                                  }
+                                ],
+                                "id": 605,
+                                "name": "MemberAccess",
+                                "src": "564:10:12"
+                              }
+                            ],
+                            "id": 606,
+                            "name": "IndexAccess",
+                            "src": "545:30:12"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "-",
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "length",
+                                  "referencedDeclaration": null,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 571,
+                                      "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref[] storage ref",
+                                      "value": "marketEntries"
+                                    },
+                                    "id": 607,
+                                    "name": "Identifier",
+                                    "src": "578:13:12"
+                                  }
+                                ],
+                                "id": 608,
+                                "name": "MemberAccess",
+                                "src": "578:20:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "31",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 1",
+                                  "value": "1"
+                                },
+                                "id": 609,
+                                "name": "Literal",
+                                "src": "601:1:12"
+                              }
+                            ],
+                            "id": 610,
+                            "name": "BinaryOperation",
+                            "src": "578:24:12"
+                          }
+                        ],
+                        "id": 611,
+                        "name": "Assignment",
+                        "src": "545:57:12"
+                      }
+                    ],
+                    "id": 612,
+                    "name": "ExpressionStatement",
+                    "src": "545:57:12"
+                  }
+                ],
+                "id": 613,
+                "name": "Block",
+                "src": "449:158:12"
+              }
+            ],
+            "id": 614,
+            "name": "FunctionDefinition",
+            "src": "376:231:12"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getMarketAddress",
+              "payable": false,
+              "scope": 672,
+              "stateMutability": "view",
+              "superFunction": 548,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_who",
+                      "scope": 633,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 615,
+                        "name": "ElementaryTypeName",
+                        "src": "639:7:12"
+                      }
+                    ],
+                    "id": 616,
+                    "name": "VariableDeclaration",
+                    "src": "639:12:12"
+                  }
+                ],
+                "id": 617,
+                "name": "ParameterList",
+                "src": "638:14:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 633,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 618,
+                        "name": "ElementaryTypeName",
+                        "src": "674:7:12"
+                      }
+                    ],
+                    "id": 619,
+                    "name": "VariableDeclaration",
+                    "src": "674:7:12"
+                  }
+                ],
+                "id": 620,
+                "name": "ParameterList",
+                "src": "673:9:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        622
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "index",
+                          "scope": 633,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 621,
+                            "name": "ElementaryTypeName",
+                            "src": "689:4:12"
+                          }
+                        ],
+                        "id": 622,
+                        "name": "VariableDeclaration",
+                        "src": "689:10:12"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 575,
+                              "type": "mapping(address => uint256)",
+                              "value": "marketEntryIndexes"
+                            },
+                            "id": 623,
+                            "name": "Identifier",
+                            "src": "702:18:12"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 616,
+                              "type": "address",
+                              "value": "_who"
+                            },
+                            "id": 624,
+                            "name": "Identifier",
+                            "src": "721:4:12"
+                          }
+                        ],
+                        "id": 625,
+                        "name": "IndexAccess",
+                        "src": "702:24:12"
+                      }
+                    ],
+                    "id": 626,
+                    "name": "VariableDeclarationStatement",
+                    "src": "689:37:12"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 620
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "marketAddress",
+                          "referencedDeclaration": 579,
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 571,
+                                  "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref[] storage ref",
+                                  "value": "marketEntries"
+                                },
+                                "id": 627,
+                                "name": "Identifier",
+                                "src": "739:13:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 622,
+                                  "type": "uint256",
+                                  "value": "index"
+                                },
+                                "id": 628,
+                                "name": "Identifier",
+                                "src": "753:5:12"
+                              }
+                            ],
+                            "id": 629,
+                            "name": "IndexAccess",
+                            "src": "739:20:12"
+                          }
+                        ],
+                        "id": 630,
+                        "name": "MemberAccess",
+                        "src": "739:34:12"
+                      }
+                    ],
+                    "id": 631,
+                    "name": "Return",
+                    "src": "732:41:12"
+                  }
+                ],
+                "id": 632,
+                "name": "Block",
+                "src": "683:95:12"
+              }
+            ],
+            "id": 633,
+            "name": "FunctionDefinition",
+            "src": "613:165:12"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getMarketIpfsHash",
+              "payable": false,
+              "scope": 672,
+              "stateMutability": "view",
+              "superFunction": 555,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_who",
+                      "scope": 652,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 634,
+                        "name": "ElementaryTypeName",
+                        "src": "811:7:12"
+                      }
+                    ],
+                    "id": 635,
+                    "name": "VariableDeclaration",
+                    "src": "811:12:12"
+                  }
+                ],
+                "id": 636,
+                "name": "ParameterList",
+                "src": "810:14:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 652,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 637,
+                        "name": "ElementaryTypeName",
+                        "src": "846:6:12"
+                      }
+                    ],
+                    "id": 638,
+                    "name": "VariableDeclaration",
+                    "src": "846:6:12"
+                  }
+                ],
+                "id": 639,
+                "name": "ParameterList",
+                "src": "845:8:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        641
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "index",
+                          "scope": 652,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 640,
+                            "name": "ElementaryTypeName",
+                            "src": "860:4:12"
+                          }
+                        ],
+                        "id": 641,
+                        "name": "VariableDeclaration",
+                        "src": "860:10:12"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 575,
+                              "type": "mapping(address => uint256)",
+                              "value": "marketEntryIndexes"
+                            },
+                            "id": 642,
+                            "name": "Identifier",
+                            "src": "873:18:12"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 635,
+                              "type": "address",
+                              "value": "_who"
+                            },
+                            "id": 643,
+                            "name": "Identifier",
+                            "src": "892:4:12"
+                          }
+                        ],
+                        "id": 644,
+                        "name": "IndexAccess",
+                        "src": "873:24:12"
+                      }
+                    ],
+                    "id": 645,
+                    "name": "VariableDeclarationStatement",
+                    "src": "860:37:12"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 639
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "ipfsHash",
+                          "referencedDeclaration": 581,
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 571,
+                                  "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref[] storage ref",
+                                  "value": "marketEntries"
+                                },
+                                "id": 646,
+                                "name": "Identifier",
+                                "src": "910:13:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 641,
+                                  "type": "uint256",
+                                  "value": "index"
+                                },
+                                "id": 647,
+                                "name": "Identifier",
+                                "src": "924:5:12"
+                              }
+                            ],
+                            "id": 648,
+                            "name": "IndexAccess",
+                            "src": "910:20:12"
+                          }
+                        ],
+                        "id": 649,
+                        "name": "MemberAccess",
+                        "src": "910:29:12"
+                      }
+                    ],
+                    "id": 650,
+                    "name": "Return",
+                    "src": "903:36:12"
+                  }
+                ],
+                "id": 651,
+                "name": "Block",
+                "src": "854:90:12"
+              }
+            ],
+            "id": 652,
+            "name": "FunctionDefinition",
+            "src": "784:160:12"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getMarketRegisteredAt",
+              "payable": false,
+              "scope": 672,
+              "stateMutability": "view",
+              "superFunction": 562,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_who",
+                      "scope": 671,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 653,
+                        "name": "ElementaryTypeName",
+                        "src": "981:7:12"
+                      }
+                    ],
+                    "id": 654,
+                    "name": "VariableDeclaration",
+                    "src": "981:12:12"
+                  }
+                ],
+                "id": 655,
+                "name": "ParameterList",
+                "src": "980:14:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 671,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 656,
+                        "name": "ElementaryTypeName",
+                        "src": "1016:4:12"
+                      }
+                    ],
+                    "id": 657,
+                    "name": "VariableDeclaration",
+                    "src": "1016:4:12"
+                  }
+                ],
+                "id": 658,
+                "name": "ParameterList",
+                "src": "1015:6:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        660
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "index",
+                          "scope": 671,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 659,
+                            "name": "ElementaryTypeName",
+                            "src": "1028:4:12"
+                          }
+                        ],
+                        "id": 660,
+                        "name": "VariableDeclaration",
+                        "src": "1028:10:12"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 575,
+                              "type": "mapping(address => uint256)",
+                              "value": "marketEntryIndexes"
+                            },
+                            "id": 661,
+                            "name": "Identifier",
+                            "src": "1041:18:12"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 654,
+                              "type": "address",
+                              "value": "_who"
+                            },
+                            "id": 662,
+                            "name": "Identifier",
+                            "src": "1060:4:12"
+                          }
+                        ],
+                        "id": 663,
+                        "name": "IndexAccess",
+                        "src": "1041:24:12"
+                      }
+                    ],
+                    "id": 664,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1028:37:12"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 658
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "registeredAt",
+                          "referencedDeclaration": 583,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 571,
+                                  "type": "struct AttentionMarketRegistryImpl.AttentionMarketEntry storage ref[] storage ref",
+                                  "value": "marketEntries"
+                                },
+                                "id": 665,
+                                "name": "Identifier",
+                                "src": "1078:13:12"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 660,
+                                  "type": "uint256",
+                                  "value": "index"
+                                },
+                                "id": 666,
+                                "name": "Identifier",
+                                "src": "1092:5:12"
+                              }
+                            ],
+                            "id": 667,
+                            "name": "IndexAccess",
+                            "src": "1078:20:12"
+                          }
+                        ],
+                        "id": 668,
+                        "name": "MemberAccess",
+                        "src": "1078:33:12"
+                      }
+                    ],
+                    "id": 669,
+                    "name": "Return",
+                    "src": "1071:40:12"
+                  }
+                ],
+                "id": 670,
+                "name": "Block",
+                "src": "1022:94:12"
+              }
+            ],
+            "id": 671,
+            "name": "FunctionDefinition",
+            "src": "950:166:12"
+          }
+        ],
+        "id": 672,
+        "name": "ContractDefinition",
+        "src": "67:1054:12"
+      }
+    ],
+    "id": 673,
+    "name": "SourceUnit",
+    "src": "0:1121:12"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-22T07:10:56.974Z"
+}

@@ -1,0 +1,206 @@
+{
+  "contractName": "AttentionMarketPriceRegistry",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        },
+        {
+          "name": "_when",
+          "type": "bytes"
+        }
+      ],
+      "name": "getPrice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\n/**\n * @title Attention Market Price Registry\n * \n * @dev Data registry that stores the market-based (supply-demand) pricing parameters of each user's attention.\n * This is one of several pricing strategies used to model a user's attention price.\n * \n * @dev Since this is a datastore, it is intentionally NOT meant to be upgradeable.\n * \n * @author Hwi Yong Song\n */\ncontract AttentionMarketPriceRegistry {\n  \n  function getPrice(address _who, bytes _when) public view returns (uint);\n  \n}",
+  "sourcePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionMarketPriceRegistry.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionMarketPriceRegistry.sol",
+      "exportedSymbols": {
+        "AttentionMarketPriceRegistry": [
+          526
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 516,
+        "name": "PragmaDirective",
+        "src": "0:24:9"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": "@title Attention Market Price Registry\n\n * @dev Data registry that stores the market-based (supply-demand) pricing parameters of each user's attention.\nThis is one of several pricing strategies used to model a user's attention price.\n\n * @dev Since this is a datastore, it is intentionally NOT meant to be upgradeable.\n\n * @author Hwi Yong Song",
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            526
+          ],
+          "name": "AttentionMarketPriceRegistry",
+          "scope": 527
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getPrice",
+              "payable": false,
+              "scope": 526,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_who",
+                      "scope": 525,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 517,
+                        "name": "ElementaryTypeName",
+                        "src": "457:7:9"
+                      }
+                    ],
+                    "id": 518,
+                    "name": "VariableDeclaration",
+                    "src": "457:12:9"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_when",
+                      "scope": 525,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 519,
+                        "name": "ElementaryTypeName",
+                        "src": "471:5:9"
+                      }
+                    ],
+                    "id": 520,
+                    "name": "VariableDeclaration",
+                    "src": "471:11:9"
+                  }
+                ],
+                "id": 521,
+                "name": "ParameterList",
+                "src": "456:27:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 525,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 522,
+                        "name": "ElementaryTypeName",
+                        "src": "505:4:9"
+                      }
+                    ],
+                    "id": 523,
+                    "name": "VariableDeclaration",
+                    "src": "505:4:9"
+                  }
+                ],
+                "id": 524,
+                "name": "ParameterList",
+                "src": "504:6:9"
+              }
+            ],
+            "id": 525,
+            "name": "FunctionDefinition",
+            "src": "439:72:9"
+          }
+        ],
+        "id": 526,
+        "name": "ContractDefinition",
+        "src": "394:122:9"
+      }
+    ],
+    "id": 527,
+    "name": "SourceUnit",
+    "src": "0:516:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-22T07:10:56.974Z"
+}

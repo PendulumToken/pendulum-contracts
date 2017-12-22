@@ -1,0 +1,493 @@
+{
+  "contractName": "Proxy",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "contractKey",
+          "type": "string"
+        }
+      ],
+      "name": "lookupAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b731d3b2638a7cc9f2cb3d298a3da7a90b67e5506ed6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610230806100726000396000f300606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063c0410f7b14610046575b600080fd5b341561005157600080fd5b6100a1600480803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506100e3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663bf40fac1836000604051602001526040518263ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018080602001828103825283818151815260200191508051906020019080838360005b8381101561019757808201518184015260208101905061017c565b50505050905090810190601f1680156101c45780820380516001836020036101000a031916815260200191505b5092505050602060405180830381600087803b15156101e257600080fd5b6102c65a03f115156101f357600080fd5b5050506040518051905090509190505600a165627a7a72305820c568282a09c651b4687fe6ff2ea396ce2f8a9fc3f061961c1bec9ddbf0bc60680029",
+  "deployedBytecode": "0x606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063c0410f7b14610046575b600080fd5b341561005157600080fd5b6100a1600480803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506100e3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663bf40fac1836000604051602001526040518263ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018080602001828103825283818151815260200191508051906020019080838360005b8381101561019757808201518184015260208101905061017c565b50505050905090810190601f1680156101c45780820380516001836020036101000a031916815260200191505b5092505050602060405180830381600087803b15156101e257600080fd5b6102c65a03f115156101f357600080fd5b5050506040518051905090509190505600a165627a7a72305820c568282a09c651b4687fe6ff2ea396ce2f8a9fc3f061961c1bec9ddbf0bc60680029",
+  "sourceMap": "72:412:2:-;;;245:97;;;;;;;;147:42;275:16;;:62;;;;;;;;;;;;;;;;;;72:412;;;;;;",
+  "deployedSourceMap": "72:412:2:-;;;;;;;;;;;;;;;;;;;;;;;;348:131;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;412:7;434:16;;;;;;;;;;;:27;;;462:11;434:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;427:47:2;;348:131;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport \"../registries/ContractRegistry.sol\";\n\ncontract Proxy {\n  \n  address private constant CONTRACT_REGISTRY_ADDRESS = 0x1d3B2638a7cC9f2CB3D298A3DA7a90B67E5506ed;\n  \n  ContractRegistry internal contractRegistry;\n  \n  function Proxy() public {\n    contractRegistry = ContractRegistry(CONTRACT_REGISTRY_ADDRESS);\n  }\n  \n  function lookupAddress(string contractKey) public view returns (address) {\n    return contractRegistry.getAddress(contractKey);\n  }\n  \n}",
+  "sourcePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/extensions/Proxy.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/extensions/Proxy.sol",
+      "exportedSymbols": {
+        "Proxy": [
+          254
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 224,
+        "name": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 709,
+          "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/ContractRegistry.sol",
+          "file": "../registries/ContractRegistry.sol",
+          "scope": 255,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 225,
+        "name": "ImportDirective",
+        "src": "26:44:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            254
+          ],
+          "name": "Proxy",
+          "scope": 255
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": true,
+              "name": "CONTRACT_REGISTRY_ADDRESS",
+              "scope": 254,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "type": "address"
+                },
+                "id": 226,
+                "name": "ElementaryTypeName",
+                "src": "94:7:2"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "307831643342323633386137634339663243423344323938413344413761393042363745353530366564",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "address",
+                  "value": "0x1d3B2638a7cC9f2CB3D298A3DA7a90B67E5506ed"
+                },
+                "id": 227,
+                "name": "Literal",
+                "src": "147:42:2"
+              }
+            ],
+            "id": 228,
+            "name": "VariableDeclaration",
+            "src": "94:95:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "contractRegistry",
+              "scope": 254,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract ContractRegistry",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "ContractRegistry",
+                  "referencedDeclaration": 708,
+                  "type": "contract ContractRegistry"
+                },
+                "id": 229,
+                "name": "UserDefinedTypeName",
+                "src": "196:16:2"
+              }
+            ],
+            "id": 230,
+            "name": "VariableDeclaration",
+            "src": "196:42:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "modifiers": [
+                null
+              ],
+              "name": "Proxy",
+              "payable": false,
+              "scope": 254,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 231,
+                "name": "ParameterList",
+                "src": "259:2:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 232,
+                "name": "ParameterList",
+                "src": "269:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract ContractRegistry"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 230,
+                              "type": "contract ContractRegistry",
+                              "value": "contractRegistry"
+                            },
+                            "id": 233,
+                            "name": "Identifier",
+                            "src": "275:16:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "contract ContractRegistry",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 708,
+                                  "type": "type(contract ContractRegistry)",
+                                  "value": "ContractRegistry"
+                                },
+                                "id": 234,
+                                "name": "Identifier",
+                                "src": "294:16:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 228,
+                                  "type": "address",
+                                  "value": "CONTRACT_REGISTRY_ADDRESS"
+                                },
+                                "id": 235,
+                                "name": "Identifier",
+                                "src": "311:25:2"
+                              }
+                            ],
+                            "id": 236,
+                            "name": "FunctionCall",
+                            "src": "294:43:2"
+                          }
+                        ],
+                        "id": 237,
+                        "name": "Assignment",
+                        "src": "275:62:2"
+                      }
+                    ],
+                    "id": 238,
+                    "name": "ExpressionStatement",
+                    "src": "275:62:2"
+                  }
+                ],
+                "id": 239,
+                "name": "Block",
+                "src": "269:73:2"
+              }
+            ],
+            "id": 240,
+            "name": "FunctionDefinition",
+            "src": "245:97:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "lookupAddress",
+              "payable": false,
+              "scope": 254,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contractKey",
+                      "scope": 253,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 241,
+                        "name": "ElementaryTypeName",
+                        "src": "371:6:2"
+                      }
+                    ],
+                    "id": 242,
+                    "name": "VariableDeclaration",
+                    "src": "371:18:2"
+                  }
+                ],
+                "id": 243,
+                "name": "ParameterList",
+                "src": "370:20:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 253,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 244,
+                        "name": "ElementaryTypeName",
+                        "src": "412:7:2"
+                      }
+                    ],
+                    "id": 245,
+                    "name": "VariableDeclaration",
+                    "src": "412:7:2"
+                  }
+                ],
+                "id": 246,
+                "name": "ParameterList",
+                "src": "411:9:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 246
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "address",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "getAddress",
+                              "referencedDeclaration": 700,
+                              "type": "function (string memory) view external returns (address)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 230,
+                                  "type": "contract ContractRegistry",
+                                  "value": "contractRegistry"
+                                },
+                                "id": 247,
+                                "name": "Identifier",
+                                "src": "434:16:2"
+                              }
+                            ],
+                            "id": 248,
+                            "name": "MemberAccess",
+                            "src": "434:27:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 242,
+                              "type": "string memory",
+                              "value": "contractKey"
+                            },
+                            "id": 249,
+                            "name": "Identifier",
+                            "src": "462:11:2"
+                          }
+                        ],
+                        "id": 250,
+                        "name": "FunctionCall",
+                        "src": "434:40:2"
+                      }
+                    ],
+                    "id": 251,
+                    "name": "Return",
+                    "src": "427:47:2"
+                  }
+                ],
+                "id": 252,
+                "name": "Block",
+                "src": "421:58:2"
+              }
+            ],
+            "id": 253,
+            "name": "FunctionDefinition",
+            "src": "348:131:2"
+          }
+        ],
+        "id": 254,
+        "name": "ContractDefinition",
+        "src": "72:412:2"
+      }
+    ],
+    "id": 255,
+    "name": "SourceUnit",
+    "src": "0:484:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-22T07:10:56.973Z"
+}

@@ -1,0 +1,336 @@
+{
+  "contractName": "AttentionFlatPriceRegistry",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getMyPrice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_who",
+          "type": "address"
+        }
+      ],
+      "name": "getPrice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_price",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMyPrice",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\n/**\n * @title Attention Flat Price Registry\n * \n * @dev Data registry that stores the flat pricing parameters of each user's attention.\n * This is one of several pricing strategies used to model a user's attention price.\n * \n * @dev Since this is a datastore, it is intentionally NOT meant to be upgradeable.\n */\ncontract AttentionFlatPriceRegistry {\n  \n  function getPrice(address _who) public view returns (uint);\n  \n  function getMyPrice() public view returns (uint);\n  \n  function setMyPrice(uint _price) public;\n  \n}",
+  "sourcePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionFlatPriceRegistry.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/AttentionFlatPriceRegistry.sol",
+      "exportedSymbols": {
+        "AttentionFlatPriceRegistry": [
+          462
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 444,
+        "name": "PragmaDirective",
+        "src": "0:24:7"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": "@title Attention Flat Price Registry\n\n * @dev Data registry that stores the flat pricing parameters of each user's attention.\nThis is one of several pricing strategies used to model a user's attention price.\n\n * @dev Since this is a datastore, it is intentionally NOT meant to be upgradeable.",
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            462
+          ],
+          "name": "AttentionFlatPriceRegistry",
+          "scope": 463
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getPrice",
+              "payable": false,
+              "scope": 462,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_who",
+                      "scope": 451,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 445,
+                        "name": "ElementaryTypeName",
+                        "src": "400:7:7"
+                      }
+                    ],
+                    "id": 446,
+                    "name": "VariableDeclaration",
+                    "src": "400:12:7"
+                  }
+                ],
+                "id": 447,
+                "name": "ParameterList",
+                "src": "399:14:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 451,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 448,
+                        "name": "ElementaryTypeName",
+                        "src": "435:4:7"
+                      }
+                    ],
+                    "id": 449,
+                    "name": "VariableDeclaration",
+                    "src": "435:4:7"
+                  }
+                ],
+                "id": 450,
+                "name": "ParameterList",
+                "src": "434:6:7"
+              }
+            ],
+            "id": 451,
+            "name": "FunctionDefinition",
+            "src": "382:59:7"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getMyPrice",
+              "payable": false,
+              "scope": 462,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 452,
+                "name": "ParameterList",
+                "src": "466:2:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 456,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 453,
+                        "name": "ElementaryTypeName",
+                        "src": "490:4:7"
+                      }
+                    ],
+                    "id": 454,
+                    "name": "VariableDeclaration",
+                    "src": "490:4:7"
+                  }
+                ],
+                "id": 455,
+                "name": "ParameterList",
+                "src": "489:6:7"
+              }
+            ],
+            "id": 456,
+            "name": "FunctionDefinition",
+            "src": "447:49:7"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "setMyPrice",
+              "payable": false,
+              "scope": 462,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_price",
+                      "scope": 461,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 457,
+                        "name": "ElementaryTypeName",
+                        "src": "522:4:7"
+                      }
+                    ],
+                    "id": 458,
+                    "name": "VariableDeclaration",
+                    "src": "522:11:7"
+                  }
+                ],
+                "id": 459,
+                "name": "ParameterList",
+                "src": "521:13:7"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 460,
+                "name": "ParameterList",
+                "src": "541:0:7"
+              }
+            ],
+            "id": 461,
+            "name": "FunctionDefinition",
+            "src": "502:40:7"
+          }
+        ],
+        "id": 462,
+        "name": "ContractDefinition",
+        "src": "339:208:7"
+      }
+    ],
+    "id": 463,
+    "name": "SourceUnit",
+    "src": "0:547:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-22T07:10:56.974Z"
+}

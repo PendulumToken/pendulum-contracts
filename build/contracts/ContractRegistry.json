@@ -1,0 +1,583 @@
+{
+  "contractName": "ContractRegistry",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "contractUrn",
+          "type": "string"
+        }
+      ],
+      "name": "isExists",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "contractUrn",
+          "type": "string"
+        },
+        {
+          "name": "contractAddress",
+          "type": "address"
+        }
+      ],
+      "name": "updateContract",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "contractUrn",
+          "type": "string"
+        }
+      ],
+      "name": "removeContract",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "contractUrn",
+          "type": "string"
+        }
+      ],
+      "name": "getAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "contractUrn",
+          "type": "string"
+        },
+        {
+          "name": "contractAddress",
+          "type": "address"
+        }
+      ],
+      "name": "addContract",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\n/**\n * @title Contract Registry\n * \n * @dev Data registry acting as the source-of-truth of the latest version of all contracts, allowing\n * a simple mechanism to contract upgrades. There is only one instance, and it gets uploaded to the blockchain \n * before all other contracts. The Ping team shall remain the owner of this contract.\n */\ncontract ContractRegistry {\n\n  function addContract(string contractUrn, address contractAddress) public;\n\n  function removeContract(string contractUrn) public;\n\n  function updateContract(string contractUrn, address contractAddress) public;\n\n  function getAddress(string contractUrn) public view returns (address);\n  \n  function isExists(string contractUrn) public view returns (bool);\n  \n}",
+  "sourcePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/ContractRegistry.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/luffy/Development/Workspace/ping-contracts/contracts/registries/ContractRegistry.sol",
+      "exportedSymbols": {
+        "ContractRegistry": [
+          708
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 674,
+        "name": "PragmaDirective",
+        "src": "0:24:13"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": "@title Contract Registry\n\n * @dev Data registry acting as the source-of-truth of the latest version of all contracts, allowing\na simple mechanism to contract upgrades. There is only one instance, and it gets uploaded to the blockchain \nbefore all other contracts. The Ping team shall remain the owner of this contract.",
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            708
+          ],
+          "name": "ContractRegistry",
+          "scope": 709
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "addContract",
+              "payable": false,
+              "scope": 708,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contractUrn",
+                      "scope": 681,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 675,
+                        "name": "ElementaryTypeName",
+                        "src": "417:6:13"
+                      }
+                    ],
+                    "id": 676,
+                    "name": "VariableDeclaration",
+                    "src": "417:18:13"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contractAddress",
+                      "scope": 681,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 677,
+                        "name": "ElementaryTypeName",
+                        "src": "437:7:13"
+                      }
+                    ],
+                    "id": 678,
+                    "name": "VariableDeclaration",
+                    "src": "437:23:13"
+                  }
+                ],
+                "id": 679,
+                "name": "ParameterList",
+                "src": "416:45:13"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 680,
+                "name": "ParameterList",
+                "src": "468:0:13"
+              }
+            ],
+            "id": 681,
+            "name": "FunctionDefinition",
+            "src": "396:73:13"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "removeContract",
+              "payable": false,
+              "scope": 708,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contractUrn",
+                      "scope": 686,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 682,
+                        "name": "ElementaryTypeName",
+                        "src": "497:6:13"
+                      }
+                    ],
+                    "id": 683,
+                    "name": "VariableDeclaration",
+                    "src": "497:18:13"
+                  }
+                ],
+                "id": 684,
+                "name": "ParameterList",
+                "src": "496:20:13"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 685,
+                "name": "ParameterList",
+                "src": "523:0:13"
+              }
+            ],
+            "id": 686,
+            "name": "FunctionDefinition",
+            "src": "473:51:13"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "updateContract",
+              "payable": false,
+              "scope": 708,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contractUrn",
+                      "scope": 693,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 687,
+                        "name": "ElementaryTypeName",
+                        "src": "552:6:13"
+                      }
+                    ],
+                    "id": 688,
+                    "name": "VariableDeclaration",
+                    "src": "552:18:13"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contractAddress",
+                      "scope": 693,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 689,
+                        "name": "ElementaryTypeName",
+                        "src": "572:7:13"
+                      }
+                    ],
+                    "id": 690,
+                    "name": "VariableDeclaration",
+                    "src": "572:23:13"
+                  }
+                ],
+                "id": 691,
+                "name": "ParameterList",
+                "src": "551:45:13"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 692,
+                "name": "ParameterList",
+                "src": "603:0:13"
+              }
+            ],
+            "id": 693,
+            "name": "FunctionDefinition",
+            "src": "528:76:13"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getAddress",
+              "payable": false,
+              "scope": 708,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contractUrn",
+                      "scope": 700,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 694,
+                        "name": "ElementaryTypeName",
+                        "src": "628:6:13"
+                      }
+                    ],
+                    "id": 695,
+                    "name": "VariableDeclaration",
+                    "src": "628:18:13"
+                  }
+                ],
+                "id": 696,
+                "name": "ParameterList",
+                "src": "627:20:13"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 700,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 697,
+                        "name": "ElementaryTypeName",
+                        "src": "669:7:13"
+                      }
+                    ],
+                    "id": 698,
+                    "name": "VariableDeclaration",
+                    "src": "669:7:13"
+                  }
+                ],
+                "id": 699,
+                "name": "ParameterList",
+                "src": "668:9:13"
+              }
+            ],
+            "id": 700,
+            "name": "FunctionDefinition",
+            "src": "608:70:13"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "isExists",
+              "payable": false,
+              "scope": 708,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "contractUrn",
+                      "scope": 707,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 701,
+                        "name": "ElementaryTypeName",
+                        "src": "702:6:13"
+                      }
+                    ],
+                    "id": 702,
+                    "name": "VariableDeclaration",
+                    "src": "702:18:13"
+                  }
+                ],
+                "id": 703,
+                "name": "ParameterList",
+                "src": "701:20:13"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 707,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 704,
+                        "name": "ElementaryTypeName",
+                        "src": "743:4:13"
+                      }
+                    ],
+                    "id": 705,
+                    "name": "VariableDeclaration",
+                    "src": "743:4:13"
+                  }
+                ],
+                "id": 706,
+                "name": "ParameterList",
+                "src": "742:6:13"
+              }
+            ],
+            "id": 707,
+            "name": "FunctionDefinition",
+            "src": "684:65:13"
+          }
+        ],
+        "id": 708,
+        "name": "ContractDefinition",
+        "src": "365:389:13"
+      }
+    ],
+    "id": 709,
+    "name": "SourceUnit",
+    "src": "0:754:13"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-22T07:10:56.974Z"
+}
