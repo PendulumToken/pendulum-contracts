@@ -1,55 +1,55 @@
 pragma solidity ^0.4.18;
 
-import "./extensions/Proxy.sol";
-import "./providers/AttentionPriceProvider.sol";
-import "zeppelin-solidity/contracts/ownership/Ownable.sol";
+contract AttentionMarket {
 
-contract AttentionMarket is Ownable, Proxy {
-
-  struct AttentionCreditInvoice {
-    address buyer;
-    bytes when;
-    uint quantity;
-    uint price;
-    uint totalCost;
-    uint purchasedAt;
-  }
-
-  mapping(address => uint) buyerCredits;
-  AttentionCreditInvoice[] buyerInvoices;
-	 
-  event AttentionCreditBuyEvent(address _buyer, bytes _when, uint _quantity, uint _price, uint _totalCost);
-		
-  function buyCredits(bytes _when, uint _quantity) public payable {
-    uint attentionPrice = getOwnerAttentionPrice(_when);
-    uint totalCost = attentionPrice * _quantity;		
-    require(msg.value >= totalCost);
-
-    buyerCredits[msg.sender] += _quantity;
-    buyerInvoices.push(AttentionCreditInvoice(msg.sender, _when, _quantity, attentionPrice, totalCost, now));
-		
-    bool overpaid = msg.value > totalCost;
-    if (overpaid) {
-      uint refund = msg.value - totalCost;
-      if (!msg.sender.send(refund)) {
-        revert();
-      }
-    }
-		
-    AttentionCreditBuyEvent(msg.sender, _when, _quantity, attentionPrice, totalCost);
+  mapping(address => bytes32[]) senderToBookingKeyMap;
+  mapping(address => bytes32[]) recipientToBookingKeyMap;
+  mapping(bytes32 => Booking) bookingKeyToBookingMap;
+  
+  struct Booking {
+    bytes32 bookingKey;
+    address senderAddress;
+    address recipientAddress;
+    uint32 durationInMinutes;
+    uint32 paidAmount;
+    Status status;
   }
   
-  function redeemCredits(uint _quantity) public {
-    // To be completed.
+  enum Status {
+    Requested,
+    Accepted,
+    Rejected,
+    Completed
   }
 	
-  function getMyRemainingCredits() public view returns (uint) {
-    return buyerCredits[msg.sender];
+	function requestBooking(bytes32 _bookingKey, address _senderAddress, address _recipientAddress, uint32 _durationInMinutes, uint32 _paidAmount) public {
+    bookingKeyToBookingMap[_bookingKey] = Booking(_bookingKey, _senderAddress, _recipientAddress, _durationInMinutes, _paidAmount, Status.Requested);
+    senderToBookingKeyMap[_senderAddress].push(_bookingKey);
+    recipientToBookingKeyMap[_recipientAddress].push(_bookingKey);
   }
   
-  function getOwnerAttentionPrice(bytes _when) private returns (uint) {
-    AttentionPriceProvider attentionPriceProvider = AttentionPriceProvider(lookupAddress("urn:contract:attention-price-provider"));
-    return attentionPriceProvider.getPrice(owner, _when);
+  function getBooking(bytes32 _bookingKey) public view returns (address senderAddress, address recipientAddress, uint32 durationInMinutes, uint32 paidAmount, Status status) {
+    Booking storage booking = bookingKeyToBookingMap[_bookingKey];
+    senderAddress = booking.senderAddress;
+    recipientAddress = booking.recipientAddress;
+    durationInMinutes = booking.durationInMinutes;
+    paidAmount = booking.paidAmount;
+    status = booking.status;
+  }
+
+  function acceptBooking(bytes32 _bookingKey) public {
+    Booking storage booking = bookingKeyToBookingMap[_bookingKey];
+    booking.status = Status.Accepted;
+  }
+  
+  function rejectBooking(bytes32 _bookingKey) public {
+    Booking storage booking = bookingKeyToBookingMap[_bookingKey];
+    booking.status = Status.Rejected;
+  }
+  
+  function completeBooking(bytes32 _bookingKey) public {
+    Booking storage booking = bookingKeyToBookingMap[_bookingKey];
+    booking.status = Status.Completed;
   }
 	
 }
